@@ -19,7 +19,7 @@ class _HomepageState extends State<Homepage> {
             height: double.infinity,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/Yuta.jpeg'),
+                image: AssetImage('assets/images/mc.jpeg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -28,17 +28,17 @@ class _HomepageState extends State<Homepage> {
             bottom: 0,
             left: 0,
             right: 0,
-            height: MediaQuery.of(context).size.height / 2,
+            height: MediaQuery.of(context).size.height / 3,
             child: Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 221, 224, 226),
+                color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0),
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 18.0, top: 12),
+                padding: const EdgeInsets.only(left: 18.0, top: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -48,7 +48,7 @@ class _HomepageState extends State<Homepage> {
                         'Manage',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 30.0,
+                          fontSize: 20.0,
                           color: Colors.black,
                         ),
                       ),
@@ -59,7 +59,7 @@ class _HomepageState extends State<Homepage> {
                         'your',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 30.0,
+                          fontSize: 20.0,
                           color: Colors.black,
                         ),
                       ),
@@ -72,7 +72,7 @@ class _HomepageState extends State<Homepage> {
                         child: Text(
                           'tasks',
                           style: TextStyle(
-                              fontSize: 60.0,
+                              fontSize: 30.0,
                               fontWeight: FontWeight.bold,
                               color: Color.fromARGB(255, 206, 198, 198)),
                         ),
