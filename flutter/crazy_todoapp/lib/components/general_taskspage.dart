@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class GeneralTaskPage extends StatefulWidget {
   const GeneralTaskPage({super.key});
@@ -84,7 +85,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
               ),
             ],
           ),
-
+          const SizedBox(height: 20.0),
           //that was upper let's go for card
           Container(
             width: 340,
@@ -94,45 +95,96 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
               color: Colors.black,
               border: Border.all(color: Colors.grey),
             ),
-            child: Column(
+            child: const Column(
               children: [
-                Expanded(child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Text('24 Aug,Frid',
-                        style: TextStyle(
-                          color: Colors.green.shade50
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            '24 Aug,Frid',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 173, 179, 173),
+                            ),
+                          ),
                         ),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Today progress',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18.0),
+                          ),
                         ),
-                      ),
-                      const Align(
-                        alignment: Alignment.topLeft,
-                        child: Text('Today progress',
-                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0
-                         ),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),),
-
-
-                const Expanded(child: Column(
-
-                ),),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(left:10.0),
+                    child: Column(
+                      children:[
+                         Align(
+                          alignment: Alignment.centerLeft,
+                           child: Text('10/12 tasks',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 173, 179, 173),
+                              fontSize: 10.0,
+                            ),
+                           ),
+                         ),
+                         Align(
+                          alignment:Alignment.centerLeft,
+                           child: Text('83%',
+                           style: TextStyle(
+                            fontSize: 32.0,
+                             fontWeight: FontWeight.bold,
+                             color: Colors.white,
+                           ),
+                           ),
+                         ),
+                         
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(left:12.0),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: SimpleCircularProgressBar(
+                                progressColors: [
+                                  Colors.cyan,
+                                  Colors.green,
+                                  Colors.purpleAccent,
+                                  Colors.amberAccent
+                                ],
+                                size: 25,
+                                 startAngle: -180,
+                                 progressStrokeWidth: 10,
+                                 backStrokeWidth: 10,
+                                 mergeMode: true,
+                                 animationDuration: 6,
+                              ),
+                            ),
+                          ), 
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                
               ],
             ),
           ),
 
-
-
           //for ongoing section
-          Container(),
+          Container(
+
+          ),
           //for completed section
           Container(),
         ],

@@ -96,6 +96,7 @@ class _HomepageState extends State<Homepage> {
                         Padding(
                           padding: const EdgeInsets.only(right: 18.0),
                           child: FloatingActionButton(
+                            mini: true,
                             shape: const CircleBorder(
                               side: BorderSide(
                                 color: Color.fromARGB(255, 133, 130, 130),
