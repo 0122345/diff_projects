@@ -1,5 +1,6 @@
-import 'package:crazy_todoapp/components/general_taskspage.dart';
+import 'package:crazy_todoapp/components/home.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -42,39 +43,39 @@ class _HomepageState extends State<Homepage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const Align(
+                     Align(
                       alignment: Alignment.topLeft,
                       child: Text(
                         'Manage',
-                        style: TextStyle(
+                        style: GoogleFonts.dmSerifText(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
+                          fontSize: 28.0,
                           color: Colors.black,
                         ),
                       ),
                     ),
-                    const Align(
+                     Align(
                       alignment: Alignment.topLeft,
                       child: Text(
                         'your',
-                        style: TextStyle(
+                        style: GoogleFonts.dmSerifText(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
+                          fontSize: 28.0,
                           color: Colors.black,
                         ),
                       ),
                     ),
                     const SizedBox(height: 10.0),
-                    const Align(
+                  Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: Padding(
-                        padding: EdgeInsets.only(right: 18.0),
+                        padding: const EdgeInsets.only(right: 18.0),
                         child: Text(
                           'tasks',
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                               fontSize: 30.0,
                               fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 206, 198, 198)),
+                              color: const Color.fromARGB(255, 206, 198, 198)),
                         ),
                       ),
                     ),
@@ -82,11 +83,11 @@ class _HomepageState extends State<Homepage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(12.0),
+                         Padding(
+                          padding: const EdgeInsets.all(12.0),
                           child: Text(
                             'Get started',
-                            style: TextStyle(
+                            style: GoogleFonts.roboto(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                               color: Colors.black,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GeneralTaskPage extends StatefulWidget {
   const GeneralTaskPage({super.key});
@@ -95,19 +96,20 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
               color: Colors.black,
               border: Border.all(color: Colors.grey),
             ),
-            child: const Column(
+            child: Column(
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
                         Align(
                           alignment: Alignment.topLeft,
                           child: Text(
                             '24 Aug,Frid',
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 173, 179, 173),
+                            style: GoogleFonts.maShanZheng(
+                              fontSize: 20.0,
+                              color: const Color.fromARGB(255, 173, 179, 173),
                             ),
                           ),
                         ),
@@ -115,7 +117,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             'Today progress',
-                            style: TextStyle(
+                            style: GoogleFonts.baskervville(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0),
@@ -125,34 +127,35 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                     ),
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(left:10.0),
+                    padding: EdgeInsets.only(left: 10.0),
                     child: Column(
-                      children:[
-                         Align(
+                      children: [
+                        Align(
                           alignment: Alignment.centerLeft,
-                           child: Text('10/12 tasks',
+                          child: Text(
+                            '10/12 tasks',
                             style: TextStyle(
                               color: Color.fromARGB(255, 173, 179, 173),
-                              fontSize: 10.0,
+                              fontSize: 15.0,
                             ),
-                           ),
-                         ),
-                         Align(
-                          alignment:Alignment.centerLeft,
-                           child: Text('83%',
-                           style: TextStyle(
-                            fontSize: 32.0,
-                             fontWeight: FontWeight.bold,
-                             color: Colors.white,
-                           ),
-                           ),
-                         ),
-                         
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            '83%',
+                            style: TextStyle(
+                              fontSize: 32.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.only(left:12.0),
+                            padding: EdgeInsets.only(left: 12.0),
                             child: Align(
                               alignment: Alignment.centerLeft,
                               child: SimpleCircularProgressBar(
@@ -163,28 +166,70 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                                   Colors.amberAccent
                                 ],
                                 size: 25,
-                                 startAngle: -180,
-                                 progressStrokeWidth: 10,
-                                 backStrokeWidth: 10,
-                                 mergeMode: true,
-                                 animationDuration: 6,
+                                startAngle: -180,
+                                progressStrokeWidth: 10,
+                                backStrokeWidth: 10,
+                                mergeMode: true,
+                                animationDuration: 6,
                               ),
                             ),
-                          ), 
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                
               ],
             ),
           ),
 
           //for ongoing section
           Container(
-
+            margin: const EdgeInsets.only(top: 8.0),
+            child: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(width: 16.0),
+                    const Text(
+                      'Ongoing',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:8.0, left: 12.0,),
+                    child: Container(
+                      width: 36,
+                      height: 24,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: const Color.fromARGB(255, 210, 217, 219),
+                      ),
+                       child:  const Align(
+                        alignment: Alignment.center,
+                         child: Text("2",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                         ),
+                       ),
+                   
+                    ),
+                  )
+                  ],
+                ),
+                const Row(),
+                const Row()
+              ],
+            ),
           ),
+
           //for completed section
           Container(),
         ],
