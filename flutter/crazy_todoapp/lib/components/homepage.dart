@@ -1,6 +1,7 @@
 import 'package:crazy_todoapp/components/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:crazy_todoapp/data/random_image.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -10,6 +11,22 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  final RandomImageDisplay _imageDisplay = RandomImageDisplay();
+
+  @override
+  void initState() {
+    super.initState();
+    _imageDisplay.startRandomImageDisplay((newImage) {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _imageDisplay.stopRandomImageDisplay();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +35,9 @@ class _HomepageState extends State<Homepage> {
           Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/mc.jpeg'),
+                image: AssetImage(_imageDisplay.currentImage.image),
                 fit: BoxFit.cover,
               ),
             ),
@@ -43,7 +60,7 @@ class _HomepageState extends State<Homepage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                     Align(
+                    Align(
                       alignment: Alignment.topLeft,
                       child: Text(
                         'Manage',
@@ -54,7 +71,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                     ),
-                     Align(
+                    Align(
                       alignment: Alignment.topLeft,
                       child: Text(
                         'your',
@@ -66,16 +83,17 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                     const SizedBox(height: 10.0),
-                  Align(
+                    Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: Padding(
                         padding: const EdgeInsets.only(right: 18.0),
                         child: Text(
                           'tasks',
                           style: GoogleFonts.poppins(
-                              fontSize: 30.0,
-                              fontWeight: FontWeight.bold,
-                              color: const Color.fromARGB(255, 206, 198, 198)),
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromARGB(255, 206, 198, 198),
+                          ),
                         ),
                       ),
                     ),
@@ -83,7 +101,7 @@ class _HomepageState extends State<Homepage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                         Padding(
+                        Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Text(
                             'Get started',
@@ -106,12 +124,11 @@ class _HomepageState extends State<Homepage> {
                             ),
                             backgroundColor: Colors.black,
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const GeneralTaskPage(),
-                                ),
-                              );
+                             Navigator.push(
+                                 context,
+                                 MaterialPageRoute(
+                                   builder: (context) => const GeneralTaskPage(),
+                                 ),                              );
                             },
                             child: const Icon(
                               Icons.arrow_forward,
