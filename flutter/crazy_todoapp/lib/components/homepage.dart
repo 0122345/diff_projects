@@ -1,18 +1,46 @@
-import 'package:crazy_todoapp/components/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:crazy_todoapp/data/random_image.dart';
+import 'package:crazy_todoapp/utils/drawer.dart';
+import 'package:crazy_todoapp/components/home.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+class HomePage extends GetView<MyDrawerController> {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  Widget build(BuildContext context) {
+    return GetBuilder<MyDrawerController>(
+      builder: (_) => ZoomDrawer(
+        controller: _.zoomDrawerController,
+        menuScreen: const MenuScreen(),
+        mainScreen: const MainScreen(),
+        borderRadius: 24.0,
+        showShadow: true,
+        angle: -12.0,
+        drawerShadowsBackgroundColor: Colors.grey[300]!,
+        slideWidth: MediaQuery.of(context).size.width * 0.65,
+        openCurve: Curves.fastOutSlowIn,
+        closeCurve: Curves.easeInOut,
+      ),
+    );
+  }
 }
 
-class _HomepageState extends State<Homepage> {
-  final RandomImageDisplay _imageDisplay = RandomImageDisplay();
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
 
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  final RandomImageDisplay _imageDisplay = RandomImageDisplay();
+  final MyDrawerController controller = Get.find<MyDrawerController>();
+   
+
+   
   @override
   void initState() {
     super.initState();
@@ -64,7 +92,7 @@ class _HomepageState extends State<Homepage> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         'Manage',
-                        style: GoogleFonts.dmSerifText(
+                        style: GoogleFonts.dmSerifDisplay(
                           fontWeight: FontWeight.bold,
                           fontSize: 28.0,
                           color: Colors.black,
@@ -75,7 +103,7 @@ class _HomepageState extends State<Homepage> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         'your',
-                        style: GoogleFonts.dmSerifText(
+                        style: GoogleFonts.dmSerifDisplay(
                           fontWeight: FontWeight.bold,
                           fontSize: 28.0,
                           color: Colors.black,
@@ -124,11 +152,12 @@ class _HomepageState extends State<Homepage> {
                             ),
                             backgroundColor: Colors.black,
                             onPressed: () {
-                             Navigator.push(
-                                 context,
-                                 MaterialPageRoute(
-                                   builder: (context) => const GeneralTaskPage(),
-                                 ),                              );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const GeneralTaskPage(),
+                                ),
+                              );
                             },
                             child: const Icon(
                               Icons.arrow_forward,
@@ -144,6 +173,24 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ),
+          Positioned(
+            top: 40,
+            left: 20,
+            child: IconButton(
+              icon: const Icon(Icons.menu, color: Colors.white),
+              onPressed: controller.toggleDrawer,
+            ),
+          ),
+          
+          Positioned(
+            top: 60,
+           left: 20,
+            child: IconButton(
+              icon: const Icon(Icons.close, color: Colors.white),
+              onPressed: controller.toggleDrawer,
+            ),
+          ),
+         
         ],
       ),
     );
