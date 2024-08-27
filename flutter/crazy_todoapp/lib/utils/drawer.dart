@@ -4,20 +4,27 @@ import 'package:get/get.dart';
 
 class MyDrawerController extends GetxController {
   final zoomDrawerController = ZoomDrawerController();
-
- 
+  bool isDrawerOpen = false;
 
   void toggleDrawer() {
     zoomDrawerController.toggle?.call();
+
+    if (isDrawerOpen) {
+      zoomDrawerController.close?.call();
+    } else {
+      zoomDrawerController.open?.call();
+    }
+
+    isDrawerOpen = !isDrawerOpen;
     update();
   }
 }
 
 class MenuScreen extends GetView<MyDrawerController> {
-  const MenuScreen({Key? key}) : super(key: key);
+  const MenuScreen({super.key});
 
   @override
-  Widget build(BuildContext) {
+  Widget build(context) {
     return Container(
       color: Colors.amber,
     );

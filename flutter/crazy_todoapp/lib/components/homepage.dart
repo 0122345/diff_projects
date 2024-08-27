@@ -7,7 +7,7 @@ import 'package:crazy_todoapp/utils/drawer.dart';
 import 'package:crazy_todoapp/components/home.dart';
 
 class HomePage extends GetView<MyDrawerController> {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class HomePage extends GetView<MyDrawerController> {
 }
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -38,9 +38,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final RandomImageDisplay _imageDisplay = RandomImageDisplay();
   final MyDrawerController controller = Get.find<MyDrawerController>();
-   
 
-   
   @override
   void initState() {
     super.initState();
@@ -174,23 +172,21 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
           Positioned(
-            top: 40,
+            top: 30,
             left: 20,
-            child: IconButton(
-              icon: const Icon(Icons.menu, color: Colors.white),
-              onPressed: controller.toggleDrawer,
-            ),
+            child:  GetBuilder<MyDrawerController>(
+              builder: (controller) => IconButton(
+                onPressed: (){
+                  controller.toggleDrawer();
+                },
+                 icon: Icon(
+                  controller.isDrawerOpen ? Icons.close_rounded : Icons.sort,
+                 ),
+                  color:  const Color.fromARGB(255, 248, 3, 187),
+                 iconSize: 30,
+                 ),
+              ),
           ),
-          
-          Positioned(
-            top: 60,
-           left: 20,
-            child: IconButton(
-              icon: const Icon(Icons.close, color: Colors.white),
-              onPressed: controller.toggleDrawer,
-            ),
-          ),
-         
         ],
       ),
     );

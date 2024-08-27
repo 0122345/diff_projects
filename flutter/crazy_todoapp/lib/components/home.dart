@@ -188,50 +188,52 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
             margin: const EdgeInsets.only(top: 8.0),
             child: Column(
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(width: 16.0),
-                    const Text(
-                      'Ongoing',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0,top: 4),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(width: 16.0),
+                      const Text(
+                        'Ongoing',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.only(top:8.0, left: 12.0,),
-                    child: Container(
-                      width: 36,
-                      height: 24,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color.fromARGB(255, 210, 217, 219),
-                      ),
-                       child:  const Align(
-                        alignment: Alignment.center,
-                         child: Text("2",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    Padding(
+                      padding: const EdgeInsets.only(top:8.0, left: 12.0,),
+                      child: Container(
+                        width: 36,
+                        height: 24,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color.fromARGB(255, 210, 217, 219),
+                        ),
+                         child:  const Align(
+                          alignment: Alignment.center,
+                           child: Text("2",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                           ),
                          ),
-                       ),
-                   
-                    ),
-                  )
-                  ],
+                     
+                      ),
+                    )
+                    ],
+                  ),
                 ),
-                const Row(),
-                const Row()
+              // ongoing builder
               ],
             ),
           ),
 
           //for completed section
-          Container(),
+          Container(),//completed 
         ],
       ),
     );
