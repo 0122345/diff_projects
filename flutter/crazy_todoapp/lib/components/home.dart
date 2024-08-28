@@ -1,3 +1,4 @@
+import 'package:crazy_todoapp/utils/ongoing_task.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +11,9 @@ class GeneralTaskPage extends StatefulWidget {
 }
 
 class _GeneralTaskPageState extends State<GeneralTaskPage> {
+  int totalOngoingTasks = 0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -189,7 +193,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 16.0,top: 4),
+                  padding: const EdgeInsets.only(left: 16.0, top: 4),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -197,44 +201,125 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                       const Text(
                         'Ongoing',
                         style: TextStyle(
+                          fontFamily: 'Matemasie',
                           color: Colors.black,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    Padding(
-                      padding: const EdgeInsets.only(top:8.0, left: 12.0,),
-                      child: Container(
-                        width: 36,
-                        height: 24,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: const Color.fromARGB(255, 210, 217, 219),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 8.0,
+                          left: 12.0,
                         ),
-                         child:  const Align(
-                          alignment: Alignment.center,
-                           child: Text("2",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                        child: Container(
+                          width: 36,
+                          height: 24,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: const Color.fromARGB(255, 210, 217, 219),
+                          ),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                               totalOngoingTasks.toString(),
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                           ),
-                         ),
-                     
+                          ),
+                        ),
                       ),
-                    )
                     ],
                   ),
                 ),
-              // ongoing builder
+                // ongoing builder
               ],
             ),
           ),
-
+          //ongoing section
+           SizedBox(
+             child: Ongoing(
+                onTotalTasksChanged: (total){
+                  setState(() {
+                    totalOngoingTasks = total;
+                  });
+                },
+              ),
+           ),
+    
           //for completed section
-          Container(),//completed 
+
+            Container(
+            margin: const EdgeInsets.only(top: 8.0),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0, top: 4),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(width: 16.0),
+                      const Text(
+                        'Completed',
+                        style: TextStyle(
+                          fontFamily: 'Matemasie',
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 8.0,
+                          left: 12.0,
+                        ),
+                        child: Container(
+                          width: 36,
+                          height: 24,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: const Color.fromARGB(255, 210, 217, 219),
+                          ),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                               totalOngoingTasks.toString(),
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // ongoing builder
+              ],
+            ),
+          ),
+          Container(), //completed
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        backgroundColor: Color.fromARGB(255, 10, 241, 222),
+        shape: const CircleBorder(
+          side: BorderSide(
+            color: Color.fromARGB(255, 133, 130, 130),
+            width: 3.0,
+          ),
+        ),
+        child: const Icon(
+          Icons.add,
+          size: 30,
+          color: Colors.white,
+        ),
       ),
     );
   }

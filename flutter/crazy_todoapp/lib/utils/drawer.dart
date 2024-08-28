@@ -1,3 +1,4 @@
+import 'package:crazy_todoapp/components/homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -27,7 +28,6 @@ class MenuScreen extends GetView<MyDrawerController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-       
       color: const Color.fromARGB(255, 212, 218, 218),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -48,13 +48,19 @@ class MenuScreen extends GetView<MyDrawerController> {
                           color: Colors.black,
                         ),
                       ),
+                      
                     ),
                     const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: IconButton(
                         onPressed: () {
-                          // Get.back();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomePage(),
+                            ),
+                          );
                         },
                         icon: const Icon(Icons.settings_suggest_outlined),
                       ),
@@ -74,108 +80,122 @@ class MenuScreen extends GetView<MyDrawerController> {
           ),
           Row(
             children: [
-              
               const SizedBox(height: 24),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
+                  padding: const EdgeInsets.only(left: 10.0, bottom: 70),
                   child: Column(
                     children: [
                       Row(
                         children: [
                           Text(
-                            'theme Settings',
+                            'Theme Settings',
                             style: GoogleFonts.poppins(
-                              fontSize: 16,
+                              fontSize: 14,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           const SizedBox(width: 10),
-                          const Icon(Icons.light_mode,
-                           size: 20,
-                           color: Color.fromARGB(255, 0, 187, 201),
+                          const Icon(
+                            Icons.light_mode,
+                            size: 20,
+                            color: Color.fromARGB(255, 0, 187, 201),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 24),
-                       Row(
+                      const SizedBox(height: 12),
+                      Row(
                         children: [
-                          Text('about us',
-                           style: GoogleFonts.poppins(
-                              fontSize: 16,
+                          Text(
+                            'About us',
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                             ),
+                            ),
                           ),
                           const SizedBox(width: 20),
-                          const Icon(Icons.info,
-                           size: 20,
-                           color: Color.fromARGB(255, 0, 187, 201),
+                          const Icon(
+                            Icons.info,
+                            size: 20,
+                            color: Color.fromARGB(255, 0, 187, 201),
                           ),
                         ],
                       ),
-                       Row(
+                      const SizedBox(height: 12),
+                      Row(
                         children: [
-                          Text('help',
-                           style: GoogleFonts.poppins(
-                            fontSize: 16,
+                          Text(
+                            'Help',
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                           ),
+                            ),
                           ),
                           const SizedBox(width: 10),
-                          const Icon(Icons.help_outline,
-                          size: 20,
-                          color: Color.fromARGB(255, 0, 187, 201),
+                          const Icon(
+                            Icons.help_outline,
+                            size: 20,
+                            color: Color.fromARGB(255, 0, 187, 201),
                           ),
                         ],
                       ),
-                       Row(
+                      const SizedBox(height: 12),
+                      Row(
                         children: [
-                          Text('logout',
-                           style: GoogleFonts.poppins(
-                            fontSize: 16,
+                          Text(
+                            'Logout',
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                           ),
+                            ),
                           ),
                           const SizedBox(width: 10),
-                           const Icon(Icons.logout,
-                           size: 20,
-                           color: Color.fromARGB(255, 0, 187, 201),
+                          const Icon(
+                            Icons.logout,
+                            size: 20,
+                            color: Color.fromARGB(255, 0, 187, 201),
                           ),
                         ],
                       ),
-                        Row(
+                      const SizedBox(height: 12),
+                      Row(
                         children: [
-                          Text('privacy policy',
-                           style: GoogleFonts.poppins(
-                             fontSize: 16,
+                          Text(
+                            'Privacy policy',
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                           ),
+                            ),
                           ),
                           const SizedBox(width: 10),
-                          const Icon(Icons.lock,
-                           size: 20,
-                           color: Color.fromARGB(255, 0, 187, 201),
+                          const Icon(
+                            Icons.lock,
+                            size: 20,
+                            color: Color.fromARGB(255, 0, 187, 201),
                           ),
                         ],
                       ),
-                       Row(
+                      const SizedBox(height: 12),
+                      Row(
                         children: [
-                          Text('terms and conditions',
-                           style: GoogleFonts.poppins(
-                            fontSize: 16,
+                          Text(
+                            'Terms and Conditions',
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                           ),
+                            ),
                           ),
                           const SizedBox(width: 10),
-                          const Icon(Icons.gavel,
-                           size: 20,
-                           color: Color.fromARGB(255, 0, 187, 201),
+                          const Icon(
+                            Icons.gavel,
+                            size: 20,
+                            color: Color.fromARGB(255, 0, 187, 201),
                           ),
                         ],
                       ),
@@ -183,7 +203,6 @@ class MenuScreen extends GetView<MyDrawerController> {
                   ),
                 ),
               ),
-              
             ],
           ),
         ],
