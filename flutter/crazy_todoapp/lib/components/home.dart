@@ -1,3 +1,4 @@
+import 'package:crazy_todoapp/components/statistical.dart';
 import 'package:crazy_todoapp/utils/ongoing_task.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
@@ -12,7 +13,6 @@ class GeneralTaskPage extends StatefulWidget {
 
 class _GeneralTaskPageState extends State<GeneralTaskPage> {
   int totalOngoingTasks = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -198,13 +198,22 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(width: 16.0),
-                      const Text(
-                        'Ongoing',
-                        style: TextStyle(
-                          fontFamily: 'Matemasie',
-                          color: Colors.black,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DAilyRoutine()),
+                          );
+                        },
+                        child: const Text(
+                          'Ongoing',
+                          style: TextStyle(
+                            fontFamily: 'Matemasie',
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                       Padding(
@@ -222,7 +231,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                           child: Align(
                             alignment: Alignment.center,
                             child: Text(
-                               totalOngoingTasks.toString(),
+                              totalOngoingTasks.toString(),
                               style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
@@ -240,19 +249,19 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
             ),
           ),
           //ongoing section
-           SizedBox(
-             child: Ongoing(
-                onTotalTasksChanged: (total){
-                  setState(() {
-                    totalOngoingTasks = total;
-                  });
-                },
-              ),
-           ),
-    
+          SizedBox(
+            child: Ongoing(
+              onTotalTasksChanged: (total) {
+                setState(() {
+                  totalOngoingTasks = total;
+                });
+              },
+            ),
+          ),
+
           //for completed section
 
-            Container(
+          Container(
             margin: const EdgeInsets.only(top: 8.0),
             child: Column(
               children: [
@@ -286,7 +295,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                           child: Align(
                             alignment: Alignment.center,
                             child: Text(
-                               totalOngoingTasks.toString(),
+                              totalOngoingTasks.toString(),
                               style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
@@ -307,8 +316,8 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        backgroundColor: Color.fromARGB(255, 10, 241, 222),
+        onPressed: () {},
+        backgroundColor: const Color.fromARGB(255, 10, 241, 222),
         shape: const CircleBorder(
           side: BorderSide(
             color: Color.fromARGB(255, 133, 130, 130),
