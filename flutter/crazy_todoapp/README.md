@@ -16,7 +16,7 @@ A stylish and feature-rich todo application built with Flutter.
 ## Getting Started
 
 1. **Clone the repository**: run in terminal following a line of code
-    `git clone  https://github.com/yourusername/crazy_todoapp.git`
+    `git clone  https://github.com/0122345/crazy_todoapp.git`
 
 2. Navigate to the project directory:in terminal run `cd` on windows then add correct path
 
