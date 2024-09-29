@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
@@ -5,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:crazy_todoapp/data/random_image.dart';
 import 'package:crazy_todoapp/utils/drawer.dart';
 import 'package:crazy_todoapp/components/home.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class HomePage extends GetView<MyDrawerController> {
   const HomePage({super.key});
@@ -38,18 +40,35 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final RandomImageDisplay _imageDisplay = RandomImageDisplay();
   final MyDrawerController controller = Get.find<MyDrawerController>();
-
+  final AudioPlayer audioPlayer = AudioPlayer();
+  bool isPlaying = false;
   @override
   void initState() {
     super.initState();
     _imageDisplay.startRandomImageDisplay((newImage) {
       setState(() {});
     });
+    audioPlayer.setReleaseMode(ReleaseMode.loop);
+    audioPlayer.setSourceAsset(
+        'audio/Sword Of The Stranger - Ihojin No Yaiba  [Battle Theme].mp3');
+  }
+
+  void toggleAudio() async {
+    if (isPlaying) {
+      await audioPlayer.pause();
+      isPlaying = false;
+    } else {
+        await audioPlayer.resume();
+        isPlaying = true;
+    }
+    setState(() {});
   }
 
   @override
   void dispose() {
     _imageDisplay.stopRandomImageDisplay();
+    audioPlayer.stop();
+    audioPlayer.dispose();
     super.dispose();
   }
 
@@ -65,6 +84,33 @@ class _MainScreenState extends State<MainScreen> {
               image: DecorationImage(
                 image: AssetImage(_imageDisplay.currentImage.image),
                 fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0, top: 40.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                width: 300,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.blueGrey,
+                ),
+                //audio
+                child: Center(
+                  child: GestureDetector(
+                    onDoubleTap: toggleAudio,
+                    child: Text(
+                      "Sword of stranger",
+                      style: GoogleFonts.maShanZheng(
+                        fontSize: 20.0,
+                        color: const Color.fromARGB(255, 173, 179, 173),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -174,18 +220,18 @@ class _MainScreenState extends State<MainScreen> {
           Positioned(
             top: 30,
             left: 20,
-            child:  GetBuilder<MyDrawerController>(
+            child: GetBuilder<MyDrawerController>(
               builder: (controller) => IconButton(
-                onPressed: (){
+                onPressed: () {
                   controller.toggleDrawer();
                 },
-                 icon: Icon(
+                icon: Icon(
                   controller.isDrawerOpen ? Icons.close_rounded : Icons.sort,
-                 ),
-                  color:  const Color.fromARGB(255, 248, 3, 187),
-                 iconSize: 30,
-                 ),
+                ),
+                color: const Color.fromARGB(255, 248, 3, 187),
+                iconSize: 30,
               ),
+            ),
           ),
         ],
       ),

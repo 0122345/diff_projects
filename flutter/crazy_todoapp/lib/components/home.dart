@@ -3,6 +3,8 @@ import 'package:crazy_todoapp/utils/ongoing_task.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+
 
 class GeneralTaskPage extends StatefulWidget {
   const GeneralTaskPage({super.key});
@@ -110,7 +112,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                         Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            '24 Aug,Frid',
+                            DateFormat('dd MMMM yyyy').format(DateTime.now()),
                             style: GoogleFonts.maShanZheng(
                               fontSize: 20.0,
                               color: const Color.fromARGB(255, 173, 179, 173),
@@ -254,6 +256,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
               onTotalTasksChanged: (total) {
                 setState(() {
                   totalOngoingTasks = total;
+                 
                 });
               },
             ),
@@ -316,8 +319,10 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: const Color.fromARGB(255, 10, 241, 222),
+        onPressed: () {
+           Navigator.pop(context);
+        },
+        backgroundColor: const Color.fromARGB(255, 10, 25, 241),
         shape: const CircleBorder(
           side: BorderSide(
             color: Color.fromARGB(255, 133, 130, 130),
