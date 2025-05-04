@@ -33,7 +33,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Good',
+                        'Welcome',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 22,
@@ -41,7 +41,7 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
                         ),
                       ),
                       Text(
-                        'morning',
+                        'User Name',
                         style: TextStyle(
                           color: Color.fromARGB(255, 217, 228, 218),
                           fontSize: 22,
@@ -320,7 +320,10 @@ class _GeneralTaskPageState extends State<GeneralTaskPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-           Navigator.pop(context);
+            Navigator.push(
+              context, MaterialPageRoute(builder:  (context) => const DAilyRoutine(),
+              ),
+            );
         },
         backgroundColor: const Color.fromARGB(255, 10, 25, 241),
         shape: const CircleBorder(
