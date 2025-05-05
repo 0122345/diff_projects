@@ -10,6 +10,6 @@ class GeneralBottomNav extends StatefulWidget {
 class _GeneralBottomNavState extends State<GeneralBottomNav> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return BottomNavigationBar(items: [],);
   }
 }
