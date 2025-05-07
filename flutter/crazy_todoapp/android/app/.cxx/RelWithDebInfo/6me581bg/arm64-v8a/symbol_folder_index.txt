@@ -1,0 +1,1 @@
+C:\Users\ntwar\Videos\diff_projects\flutter\crazy_todoapp\build\app\intermediates\cxx\RelWithDebInfo\6me581bg\obj\arm64-v8a
