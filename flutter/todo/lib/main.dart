@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'components/homepage.dart';
 import 'utils/drawer.dart';
+import 'view/home/homepage.dart';
 
 void main() {
   Get.put<MyDrawerController> (MyDrawerController());

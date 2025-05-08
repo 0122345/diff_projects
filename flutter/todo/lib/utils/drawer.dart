@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 
-import '../components/homepage.dart';
+import '../view/home/homepage.dart';
+ 
 
 class MyDrawerController extends GetxController {
   final zoomDrawerController = ZoomDrawerController();

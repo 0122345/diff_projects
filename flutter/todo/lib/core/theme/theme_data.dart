@@ -26,6 +26,19 @@ final ThemeData darkTheme = ThemeData(
 );
 
 
+final ThemeData blueTheme = ThemeData(
+  brightness: Brightness.light,
+  primaryColor: HexColor('#1441DD'),
+  secondaryHeaderColor: HexColor('#07061F'),
+  textTheme: TextTheme(
+    bodyLarge: TextStyle(
+      color: HexColor('#FFFFFF'),
+      fontSize: 25,
+    ),
+  ),
+);
+
+
 
 
 //TODO: other theme should be called blues()
