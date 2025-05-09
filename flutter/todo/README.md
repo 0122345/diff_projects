@@ -1,16 +1,19 @@
 # todo
 
-A new Flutter project.
+I had to do another Todo APP from crazy_todo which is in this directory
 
-## Getting Started
+## Run the app
 
-This project is a starting point for a Flutter application.
+<!--TODO: This should have: 
+google_sign/apple_sign_in in async 
+supabase/firebase for storage & notification(flutter_localNotification)
+sqlite for localStorage
+animations
+Special Reminder
+screen timer
+parental Control
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+PERMISSIONS:
+- storage
+- audio 
+- displaying over other apps -->

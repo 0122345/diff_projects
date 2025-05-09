@@ -111,6 +111,18 @@ class _DAilyRoutineState extends State<DAilyRoutine> {
                   topRight: Radius.circular(20),
                 ),
               ),
+              child: GestureDetector(
+                onTap: () {
+                  // Navigator.push(
+                  //   context, MaterialPageRoute()
+                  // );
+                },
+                child: Column(
+                children: [
+                  Text('go to calendar View WIdget'),
+                ],
+                             ),
+              ),
             ),
             // child: Canvas(
             //   children: [
@@ -120,6 +132,7 @@ class _DAilyRoutineState extends State<DAilyRoutine> {
             //     ),
             //    ],
             // ),
+             
           ),
         ],
       ),
