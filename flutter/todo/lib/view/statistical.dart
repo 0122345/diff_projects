@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:todo/widget/calendar_view_w.dart';
 
 //Calendar
 
@@ -113,9 +114,11 @@ class _DAilyRoutineState extends State<DAilyRoutine> {
               ),
               child: GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context, MaterialPageRoute()
-                  // );
+                  Navigator.push(
+                    context, MaterialPageRoute(
+                      builder: (cntext) => const SecondHomeScreenVi(),
+                    ),
+                  );
                 },
                 child: Column(
                 children: [
