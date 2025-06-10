@@ -1,0 +1,3 @@
+C:/Users/ntwar/Videos/diff_projects/cpp/Beginner/basic_calc/calc_with_cmake/build/CMakeFiles/calculator.dir
+C:/Users/ntwar/Videos/diff_projects/cpp/Beginner/basic_calc/calc_with_cmake/build/CMakeFiles/edit_cache.dir
+C:/Users/ntwar/Videos/diff_projects/cpp/Beginner/basic_calc/calc_with_cmake/build/CMakeFiles/rebuild_cache.dir
