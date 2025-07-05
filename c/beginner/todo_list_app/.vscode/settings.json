@@ -55,6 +55,5 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false,
-  "cmake.sourceDirectory": "C:/Users/ntwar/videos/diff_projects/cpp/beginner/basic_calc/calc_with_cmake"
+  "C_Cpp_Runner.msvcSecureNoWarnings": false
 }

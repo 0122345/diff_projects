@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "console": "externalTerminal",
+      "cwd": "c:/Users/ntwar/videos/diff_projects/c/beginner/todo_list_app",
+      "program": "c:/Users/ntwar/videos/diff_projects/c/beginner/todo_list_app/build/Debug/outDebug"
+    }
+  ]
+}

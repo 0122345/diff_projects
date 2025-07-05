@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:todo/view/home/my_services.dart';
 import 'package:todo/widget/calendar_view_w.dart';
 
 //Calendar
@@ -70,7 +71,12 @@ class _DAilyRoutineState extends State<DAilyRoutine> {
                           ),
                           onTap: () {
                             //for now let's go back after click Nah we have
-                            //Navigator.pop(context);
+                            Navigator.pop();
+                            // Navigator.push(
+                            //   context, MaterialPageRoute(
+                            //     builder:  (context) => HomeScreen(),
+                            //     ),
+                            // );
                           },
                         ),
                       ],

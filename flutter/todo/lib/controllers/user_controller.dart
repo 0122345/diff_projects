@@ -1,6 +1,11 @@
-Class User {
+class UserInfo {
   final String name;
-  final String age;
+  final int age;
   final String photo;
-  
+
+  UserInfo({
+    required this.name,
+    required this.age,
+    required this.photo,
+  });
 }

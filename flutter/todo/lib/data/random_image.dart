@@ -192,3 +192,7 @@ class RandomImageDisplay {
     return _imageList[random.nextInt(_imageList.length)];
   }
 }
+
+//TODO: add function to allow user to upload image from file & from internet (copying link)
+
+//void uploadFileFromFile(file){}
